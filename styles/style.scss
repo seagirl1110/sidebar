@@ -3,3 +3,55 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+@mixin flex-container-column() {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.header {
+    background-color: lightblue;
+    padding: 12px;
+}
+
+.btn-menu {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    width: 24px;
+    height: 24px;
+
+    /* .btn-menu--close */
+
+    &--close {
+        align-self: flex-end;
+    }
+}
+
+.sidebar {
+    @include flex-container-column();
+    background-color: lightpink;
+    box-shadow: 7px 0 7px black;
+    width: 320px;
+    padding: 12px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -340px;
+    transition: left 0.5s ease;
+}
+
+.menu {
+    @include flex-container-column();
+    list-style-type: none;
+
+    /* .menu___item */
+
+    &___item {
+        background-color: peachpuff;
+        border-radius: 10px;
+        padding: 12px;
+    }
+}
