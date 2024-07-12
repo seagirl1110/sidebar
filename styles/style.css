@@ -29,12 +29,16 @@
   background-color: lightpink;
   box-shadow: 7px 0 7px black;
   width: 320px;
+  min-height: 100vh;
   padding: 12px;
   position: absolute;
   top: 0;
-  bottom: 0;
   left: -340px;
   transition: left 0.5s ease;
+  /* sidebar--open */
+}
+.sidebar--open {
+  left: 0;
 }
 
 .menu {
@@ -42,9 +46,19 @@
   flex-direction: column;
   gap: 16px;
   list-style-type: none;
-  /* .menu___item */
+  margin: 16px 0;
+  /* .menu--nested */
+  /* .menu--open */
+  /* .menu-item__text */
 }
-.menu___item {
+.menu--nested {
+  margin-left: 40px;
+  display: none;
+}
+.menu--open {
+  display: flex;
+}
+.menu-item__text {
   background-color: peachpuff;
   border-radius: 10px;
   padding: 12px;

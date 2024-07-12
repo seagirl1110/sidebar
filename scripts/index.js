@@ -8,11 +8,11 @@ sidebar.addEventListener('click', (evt) => {
 
 openBtn.addEventListener('click', (evt) => {
   evt.stopPropagation();
-  sidebar.style.left = 0;
+  sidebar.classList.add('sidebar--open');
 });
 
 const closeMenu = () => {
-  sidebar.style.left = '-340px';
+  sidebar.classList.remove('sidebar--open');
 };
 
 closeBtn.addEventListener('click', closeMenu);
@@ -20,5 +20,21 @@ window.addEventListener('click', closeMenu);
 window.addEventListener('keydown', (evt) => {
   if (evt.code === 'Escape') {
     closeMenu();
+  }
+});
+
+// == menu nested ==
+
+const menuItemColl = document.querySelectorAll('.menu-item');
+
+menuItemColl.forEach((menuItem) => {
+  const menuItemText = menuItem.querySelector('.menu-item__text');
+  const menuNested = menuItem.querySelector('.menu--nested');
+
+  if (menuNested) {
+    menuItemText.style.cursor = 'pointer';
+    menuItemText.addEventListener('click', () => {
+      menuNested.classList.toggle('menu--open');
+    });
   }
 });
